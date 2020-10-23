@@ -219,14 +219,7 @@
 		var objGLTF = new THREE.Mesh( geometry, material );
 		gltf.scene = objGLTF;
 
-		
-		var coord = new THREE.Vector3();
-		if( typeof pos[0] === "object" ){
-			coord.x = pos[0].point[0];
-			coord.y = pos[0].point[1];
-			coord.z = pos[0].point[2];
-		}
-		objGLTF.position.set( coord.x, coord.y, coord.z );
+		objGLTF.position.set( pos[0].point[0], pos[0].point[1], pos[0].point[2] );
 
 		if(scale){	
 			if( typeof scale === "object" ){ 
