@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>OGC Maps 3D - TR3</title>
+		<script src="terrain.js"></script>
+	</head>
+  
+	<body>
+		<img id="imgOri" src="spain-01.png" width="892" height="632" style="display:none">
+		<div id="contMeshMap" style="width:600px;height:600px;border:solid"></div>
+		<script type="text/javascript">
+			function initMap(){
+
+				var imgOriObj = document.getElementById('imgOri');
+				TR3.setMeshMap(imgOriObj,'contMeshMap');
+				TR3.loadFile([ 	{ point: [30,3,-70,'Madrid'] }, 
+								{ point: [-20,0,-150,'CLeon'] }, 
+								{ point: [-150,0,-250,'Galicia'] },
+								{ point: [-70,0,-260,'Asturias'] },
+								{ point: [10,0,-240,'Cantabria'] },
+								{ point: [80,0,-240,'Euskadi'] },
+								{ point: [130,0,-220,'Navarra'] },
+								{ point: [190,0,-130,'Aragón'] },
+								{ point: [290,0,-150,'Cataluña'] },
+								{ point: [350,0,-20,'Baleares'] },
+								{ point: [190,0,0,'Valencia'] },
+								{ point: [80,0,0,'CMancha'] },
+								{ point: [-70,0,0,'Extremadura'] },
+								{ point: [-20,0,150,'Andalucía'] },
+								{ point: [150,0,100,'Murcia'] },
+								{ point: [-250,0,250,'Euskadi'] }
+				
+				], [	[20,1,20],
+						[20,10,20],
+						[20,20,20],
+						[20,30,20],
+						[20,40,20],
+						[20,50,20],
+						[20,60,20],
+						[20,70,20],
+						[20,80,20],
+						[20,90,20],
+						[20,100,20],
+						[20,110,20],
+						[20,120,20],
+						[20,130,20],
+						[20,140,20],
+						[20,150,20]
+				] );
+
+			};
+			
+			initMap();
+		</script>
+	</body>
+  
+</html>
