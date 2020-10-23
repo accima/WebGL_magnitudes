@@ -28,25 +28,7 @@
 		requestAnimationFrame( TR3.animate );
 	};
 	
-	TR3.makeWorld = function( imgOri ){
-		
-		if(typeof(imgOri) == 'object'){
-			TR3.makeObjects(imgOri);
-		}else{
-			TR3.makeImageFromPath(imgOri);
-		}
-	};
-	
-	TR3.makeImageFromID = function(image){
-		
-		//var imgConteint = new Image();
-		var imgConteint = document.getElementById(image);
-		//var context = canvas.getContext('2d');
-		//imgConteint.src = canvas.toDataURL();
-		TR3.makeObjects(imgConteint);
-	};
-	
-	TR3.makeObjects = function(imgConteint){
+	TR3.makeWorld = function(imgConteint){
 		
 		TR3.widthImg = imgConteint.width;
 		TR3.heightImg = imgConteint.height;
@@ -107,7 +89,7 @@
 				infoGeo3d.style.fontSize = "10px";
 				infoGeo3d.style.margin = "5px";
 				infoGeo3d.style.backgroundColor = "#fff";
-				infoGeo3d.innerHTML  = '<br><b>&nbsp&nbsp&nbspWebGL Map - ThreeJS -&nbsp&nbsp&nbsp</b><br>&nbsp';
+				infoGeo3d.innerHTML  = '<br><b>&nbsp&nbsp&nbspWebGL Map - ThreeJS -&nbsp&nbsp&nbsp</b><br>&nbsp&nbsp&nbsp&nbsp&nbspMagnitudes 3D Map<br>&nbsp';
 				cvsDesty.appendChild(infoGeo3d);
 			}else{
 				infoGeo3d.style.display = 'block';
@@ -138,33 +120,6 @@
 		}
 	};
 	
-	TR3.clearMeshMap = function( e ){
-	
-		var canvasDest = TR3.cvsDesty();
-		
-		if (canvasDest && Detector.webgl) {
-			var scene = TR3.scene;
-			while(scene && scene.children.length > 0){ 
-				scene.remove(scene.children[0]); 
-			}
-
-			
-			//var gl = canvasDest.getContext("webgl") || canvasDest.getContext("experimental-webgl");	// Initialize the GL context
-			//gl.clearColor(0.0, 0.0, 0.0, 1.0);                      // Set clear color to black, fully opaque
-			//gl.enable(gl.DEPTH_TEST);                               // Enable depth testing
-			//gl.depthFunc(gl.LEQUAL);                                // Near things obscure far things
-			//gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);      // Clear the color as well as the depth buffer.
-			//gl.getExtension('WEBGL_lose_context').loseContext();
-
-			canvasDest.remove();
-			
-		}else if (canvasDest && Detector.canvas){
-			var ctx = canvasDest.getContext("2d");
-			ctx.clearRect(0, 0, canvasDest.width, canvasDest.height);
-			canvasDest.remove();
-		}
-	};
-	
 	TR3.setMeshMap = function(imgOri,desty){
 	
 		/*INI params*/
@@ -175,7 +130,6 @@
 		/*Div container*/
 		TR3.divContainer(desty);
 		
-		TR3.clearMeshMap();
 		/*Detector Renderer*/
 		if(Detector.canvas){
 			/*Get canvas Destiny*/
